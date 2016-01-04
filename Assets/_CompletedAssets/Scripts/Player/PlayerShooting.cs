@@ -8,6 +8,7 @@ namespace CompleteProject
         public int damagePerShot = 20;                  // The damage inflicted by each bullet.
         public float timeBetweenBullets = 0.15f;        // The time between each shot.
         public float range = 100f;                      // The distance the gun can fire.
+		public GameObject projectileAsset;
 
 
         float timer;                                    // A timer to determine when to fire.
@@ -91,8 +92,10 @@ namespace CompleteProject
             gunParticles.Play ();
 
             // Enable the line renderer and set it's first position to be the end of the gun.
-            gunLine.enabled = true;
-            gunLine.SetPosition (0, transform.position);
+//            gunLine.enabled = true;
+//            gunLine.SetPosition (0, transform.position);
+
+			var projectile = Instantiate(projectileAsset, transform.position, transform.rotation);
 
             // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
             shootRay.origin = transform.position;
